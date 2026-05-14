@@ -15,7 +15,10 @@ import {
   CheckCircle2,
   Play,
   Activity,
-  MapPin
+  MapPin,
+  Info,
+  Wifi,
+  X
 } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
@@ -75,21 +78,28 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start pt-4">
-              <motion.button 
+              <motion.a 
+                href="https://play.google.com/store/apps/details?id=com.wristguard.app"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-primary hover:bg-primary-dark text-background font-bold py-4 px-8 rounded-full shadow-[0_0_30px_-5px_#6CFF5B] transition-all flex items-center gap-2 w-full sm:w-auto justify-center"
+                className="bg-primary hover:bg-primary-dark text-background font-bold py-3 px-6 rounded-full shadow-[0_0_30px_-5px_#6CFF5B] transition-all flex items-center gap-3 w-full sm:w-auto justify-center"
               >
-                <Shield size={20} className="fill-current text-background" />
-                Secure Your Phone Now
-              </motion.button>
-              <motion.button 
+                <Play size={24} className="fill-current text-background" />
+                <div className="flex flex-col items-start leading-tight">
+                  <span className="text-[10px] uppercase font-semibold">Get it on</span>
+                  <span className="text-lg">Google Play</span>
+                </div>
+              </motion.a>
+              <motion.a 
+                href="#demo"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="glass-card font-medium py-4 px-8 rounded-full flex items-center gap-2 w-full sm:w-auto justify-center text-foreground/80 hover:text-foreground"
               >
                 <Play size={20} className="text-primary" /> See How It Works
-              </motion.button>
+              </motion.a>
             </div>
           </motion.div>
 
@@ -284,7 +294,7 @@ export default function Home() {
       </section>
 
       {/* 3. INTERACTIVE DEMO */}
-      <section className="py-24 px-6 bg-black/50 relative border-y border-white/5">
+      <section id="demo" className="py-24 px-6 bg-black/50 relative border-y border-white/5">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-16">Try the experience</h2>
           
@@ -487,11 +497,11 @@ export default function Home() {
               <p className="text-foreground/50 mb-8">Basic utility to find your phone around the house.</p>
               <div className="text-4xl font-bold mb-8">₹0</div>
               <ul className="space-y-4 mb-8 flex-1">
-                <li className="flex items-center gap-3"><CheckCircle2 className="text-primary" size={20}/> Ring Phone (Bluetooth)</li>
-                <li className="flex items-center gap-3 text-foreground/40"><Lock size={20}/> Remote Lock Phone</li>
-                <li className="flex items-center gap-3 text-foreground/40"><MapPin size={20}/> Find My Phone (GPS)</li>
-                <li className="flex items-center gap-3 text-foreground/40"><Zap size={20}/> SOS Mode (Multi-Action)</li>
-                <li className="flex items-center gap-3 text-foreground/40"><Activity size={20}/> Phone Battery on Watch</li>
+                <li className="flex items-center gap-3"><CheckCircle2 className="text-primary" size={20}/> Ring Phone (BT only)</li>
+                <li className="flex items-center gap-3 text-foreground/40"><X size={20}/> Remote Lock</li>
+                <li className="flex items-center gap-3 text-foreground/40"><X size={20}/> GPS Locate</li>
+                <li className="flex items-center gap-3 text-foreground/40"><X size={20}/> SOS Mode</li>
+                <li className="flex items-center gap-3 text-foreground/40"><X size={20}/> Battery on Watch</li>
               </ul>
             </div>
             {/* Pro Plan */}
@@ -505,11 +515,11 @@ export default function Home() {
                 Upgrade to Pro (₹99)
               </button>
               <ul className="space-y-4 mb-8 flex-1">
-                <li className="flex items-center gap-3"><CheckCircle2 className="text-primary" size={20}/> Ring Phone (Bluetooth)</li>
-                <li className="flex items-center gap-3"><CheckCircle2 className="text-primary" size={20}/> Remote Lock Phone</li>
-                <li className="flex items-center gap-3"><CheckCircle2 className="text-primary" size={20}/> Find My Phone (GPS)</li>
-                <li className="flex items-center gap-3"><CheckCircle2 className="text-primary" size={20}/> SOS Mode (Multi-Action)</li>
-                <li className="flex items-center gap-3"><CheckCircle2 className="text-primary" size={20}/> Global Access (LTE/WiFi)</li>
+                <li className="flex items-center gap-3"><CheckCircle2 className="text-primary" size={20}/> Ring Phone (Anywhere)</li>
+                <li className="flex items-center gap-3"><CheckCircle2 className="text-primary" size={20}/> Remote Lock</li>
+                <li className="flex items-center gap-3"><CheckCircle2 className="text-primary" size={20}/> GPS Locate</li>
+                <li className="flex items-center gap-3"><CheckCircle2 className="text-primary" size={20}/> SOS Mode</li>
+                <li className="flex items-center gap-3"><CheckCircle2 className="text-primary" size={20}/> Battery on Watch</li>
               </ul>
             </div>
           </div>
@@ -521,18 +531,23 @@ export default function Home() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
           
           {/* Compatibility */}
-          <div className="glass-card bg-gradient-to-br from-zinc-900/80 to-black p-10 relative overflow-hidden flex flex-col justify-between h-full">
-            <div className="absolute right-0 bottom-0 opacity-10">
+          <div className="glass-card bg-gradient-to-br from-zinc-900/80 to-black p-10 relative overflow-hidden flex flex-col justify-between h-full group">
+            <div className="absolute right-0 bottom-0 opacity-10 group-hover:opacity-20 transition-opacity">
               <Watch size={200} />
             </div>
-            <div className="relative z-10">
+            <div className="relative z-10 flex-1">
               <h3 className="text-2xl font-bold mb-6">Works with your gear.</h3>
-              <ul className="space-y-4 font-medium text-foreground/80 text-lg">
+              <ul className="space-y-4 font-medium text-foreground/80 text-lg mb-8">
                 <li className="flex items-center gap-3"><Image src="/next.svg" width={0} height={0} className="hidden" alt="hidden"/>Galaxy Watch Ultra</li>
                 <li className="flex items-center gap-3">Galaxy Watch 7 / 6 / 5 / 4</li>
                 <li className="flex items-center gap-3">Pixel Watch Series</li>
                 <li className="flex items-center gap-3">All Wear OS 3+ Devices</li>
               </ul>
+            </div>
+            <div className="relative z-10 mt-auto pt-6 border-t border-white/10">
+              <a href="#compatibility" className="inline-flex items-center gap-2 text-primary hover:text-white font-medium transition-colors">
+                View Full Compatibility Report <ArrowRight size={16} />
+              </a>
             </div>
           </div>
 
@@ -578,35 +593,148 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. CTA */}
+      {/* 7. DETAILED COMPATIBILITY REPORT */}
+      <section className="py-24 px-6 border-t border-white/5 bg-black/40" id="compatibility">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card w-fit mx-auto mb-6 border-primary/30 text-primary">
+              <Info size={16} />
+              <span className="text-sm font-medium tracking-wide">Version 1.7 (Code 14)</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">Device Compatibility Report</h2>
+            <p className="text-foreground/60 max-w-2xl mx-auto">Detailed system requirements for the Watch Lock & Find ecosystem.</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Phone */}
+            <div className="glass-card p-8 hover:bg-white/5 transition-colors">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-primary/20 text-primary flex items-center justify-center">
+                  <Smartphone size={24} />
+                </div>
+                <h3 className="text-xl font-bold">1. Mobile Phone (Android)</h3>
+              </div>
+              <ul className="space-y-4 text-foreground/70">
+                <li className="flex flex-col"><strong className="text-foreground">Minimum OS:</strong> Android 8.0 (Oreo) / API Level 26</li>
+                <li className="flex flex-col"><strong className="text-foreground">Target OS:</strong> Android 15.0 / API Level 35</li>
+                <li className="flex flex-col"><strong className="text-foreground">Hardware Requirements:</strong> 
+                  <span className="pl-4 mt-1 border-l-2 border-white/10 text-sm">
+                    • Biometric Sensor (Fingerprint or Face Unlock) OR Secure PIN/Pattern fallback.<br/>
+                    • GPS / Location Sensor (Required for Locate and SOS features).<br/>
+                    • Active Internet Connection (WiFi, 4G, or 5G).<br/>
+                    • Vibrator motor.
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Watch */}
+            <div className="glass-card p-8 hover:bg-white/5 transition-colors">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-accent/20 text-accent flex items-center justify-center">
+                  <Watch size={24} />
+                </div>
+                <h3 className="text-xl font-bold">2. Smartwatch (Wear OS)</h3>
+              </div>
+              <ul className="space-y-4 text-foreground/70">
+                <li className="flex flex-col"><strong className="text-foreground">Minimum OS:</strong> Wear OS 3.0 / API Level 30</li>
+                <li className="flex flex-col"><strong className="text-foreground">Target OS:</strong> Wear OS 5.0 / API Level 35</li>
+                <li className="flex flex-col"><strong className="text-foreground">Supported Models:</strong> Samsung Galaxy Watch 4/5/6/7/Ultra, Pixel Watch 1/2/3, TicWatch Pro 3/5, Fossil Gen 6, etc.</li>
+                <li className="flex flex-col"><strong className="text-foreground">Screen Support:</strong> Fully optimized for Circular watch faces. Compatible with Square Wear OS watch faces.</li>
+                <li className="flex flex-col"><strong className="text-foreground">Hardware Requirements:</strong> Bluetooth 4.2+ (for local ringing). WiFi or LTE SIM (required for Pro "Out-of-Range" commands).</li>
+              </ul>
+            </div>
+
+            {/* Software */}
+            <div className="glass-card p-8 hover:bg-white/5 transition-colors">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-emerald/20 text-emerald flex items-center justify-center">
+                  <Shield size={24} />
+                </div>
+                <h3 className="text-xl font-bold">3. Software & Account</h3>
+              </div>
+              <ul className="space-y-4 text-foreground/70">
+                <li className="flex flex-col"><strong className="text-foreground">Google Play Services:</strong> Must be installed and up-to-date on both devices.</li>
+                <li className="flex flex-col"><strong className="text-foreground">Google Account:</strong> Required on both devices for secure cloud synchronization.</li>
+                <li className="flex flex-col"><strong className="text-foreground">Companion Linking:</strong> Both apps must be installed using the same Google Account to ensure background communication via Firebase works correctly.</li>
+                <li className="flex flex-col"><strong className="text-foreground">Device Admin:</strong> Phone must allow "Device Administrator" permissions to enable the Remote Lock feature.</li>
+              </ul>
+            </div>
+
+            {/* Connectivity */}
+            <div className="glass-card p-8 hover:bg-white/5 transition-colors">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-yellow-400/20 text-yellow-400 flex items-center justify-center">
+                  <Wifi size={24} />
+                </div>
+                <h3 className="text-xl font-bold">4. Connectivity Performance</h3>
+              </div>
+              <ul className="space-y-4 text-foreground/70">
+                <li className="flex flex-col"><strong className="text-foreground">Bluetooth-Only Mode:</strong> Best for local "Find my Phone" (Ring feature).</li>
+                <li className="flex flex-col"><strong className="text-foreground">Cloud Mode (LTE/WiFi):</strong> Required for "Lock," "Locate," and "SOS" features when the devices are separated by a long distance.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. FAQ */}
+      <section className="py-24 px-6 relative z-10 bg-black/20">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
+            <p className="text-foreground/60 max-w-2xl mx-auto">Everything you need to know about Watch Lock & Find.</p>
+          </div>
+          <div className="space-y-6">
+            <div className="glass-card p-6 md:p-8">
+              <h3 className="text-xl font-bold mb-3 flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-primary"></div> Does it work when the phone is off?</h3>
+              <p className="text-foreground/70 pl-4 border-l-2 border-white/5">No app can function if the device is completely powered off. However, the Remote Lock feature prevents thieves from accessing your quick settings to turn off WiFi/Mobile Data or power off the device easily without your biometric authentication, buying you valuable time to locate it.</p>
+            </div>
+            <div className="glass-card p-6 md:p-8">
+              <h3 className="text-xl font-bold mb-3 flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-primary"></div> Does it drain battery?</h3>
+              <p className="text-foreground/70 pl-4 border-l-2 border-white/5">No. Both the watch and phone applications are highly optimized to run purely via Firebase Cloud Messaging push notifications. There are no heavy background polling services. It consumes virtually 0% battery when idle.</p>
+            </div>
+            <div className="glass-card p-6 md:p-8">
+              <h3 className="text-xl font-bold mb-3 flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-primary"></div> Which watches are supported?</h3>
+              <p className="text-foreground/70 pl-4 border-l-2 border-white/5">Any smartwatch running Wear OS 3.0 or higher. This includes the Samsung Galaxy Watch 4, 5, 6, 7, and Ultra, as well as Google Pixel Watches and newer TicWatch models. Apple Watches are not supported.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. CTA */}
       <section className="py-32 px-6 relative flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5"></div>
         <div className="absolute bottom-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
         
         <div className="relative z-10 text-center max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">Ready to secure your phone from your wrist?</h2>
-          <p className="text-xl text-foreground/60 mb-10">Join thousands of users who have upgraded their smartwatch experience.</p>
+          <p className="text-xl text-foreground/60 mb-10">Be among the first to upgrade your smartwatch experience.</p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <motion.button 
+          <div className="flex flex-col items-center justify-center gap-4">
+            <motion.a 
+              href="https://play.google.com/store/apps/details?id=com.wristguard.app"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-primary hover:bg-primary-dark text-black font-bold py-4 px-10 rounded-full shadow-[0_0_30px_-5px_#6CFF5B] transition-all flex items-center justify-center gap-2 w-full sm:w-auto"
+              className="bg-primary hover:bg-primary-dark text-black font-bold py-3 px-8 rounded-full shadow-[0_0_30px_-5px_#6CFF5B] transition-all flex items-center justify-center gap-3 w-full sm:w-auto"
             >
-              <Shield size={20} className="fill-current" /> Get Lifetime Protection
-            </motion.button>
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="glass-card font-bold py-4 px-10 rounded-full flex items-center justify-center gap-2 w-full sm:w-auto"
-            >
-              Start Free Plan
-            </motion.button>
+              <Play size={28} className="fill-current" />
+              <div className="flex flex-col items-start leading-tight text-left">
+                <span className="text-[10px] uppercase font-bold tracking-wider">Download on</span>
+                <span className="text-xl tracking-tight">Google Play</span>
+              </div>
+            </motion.a>
           </div>
         </div>
       </section>
 
-      <footer className="py-8 text-center text-foreground/40 text-sm border-t border-white/5">
+      <footer className="py-8 text-center text-foreground/40 text-sm border-t border-white/5 flex flex-col items-center gap-4">
+        <div className="flex gap-6">
+          <a href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</a>
+          <a href="#compatibility" className="hover:text-primary transition-colors">Compatibility Guide</a>
+        </div>
         <p>© {new Date().getFullYear()} Watch Lock & Find. All rights reserved.</p>
       </footer>
 

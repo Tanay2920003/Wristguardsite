@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://watchfinds.com'), // Replace with your actual domain
+  metadataBase: new URL('https://watchlockfind.vercel.app'), // Replace with your actual domain
   title: "Watch Lock & Find | Find & Secure Your Phone",
   description: "Instantly find and secure your Android phone directly from your Galaxy Watch.",
   keywords: ["Galaxy Watch", "Find My Phone", "Remote Lock", "Android Security", "Wear OS", "Phone Tracker"],
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Watch Lock & Find | Find & Secure Your Phone",
     description: "Instantly find and secure your Android phone directly from your Galaxy Watch.",
-    url: 'https://watchfinds.com',
+    url: 'https://watchlockfind.vercel.app',
     siteName: 'Watch Lock & Find',
     locale: 'en_US',
     type: 'website',
