@@ -10,13 +10,21 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://watchlockfind.vercel.app'), // Replace with your actual domain
-  title: "Watch Lock & Find | Find & Secure Your Phone",
-  description: "Instantly find and secure your Android phone directly from your Galaxy Watch.",
-  keywords: ["Galaxy Watch", "Find My Phone", "Remote Lock", "Android Security", "Wear OS", "Phone Tracker"],
+  title: "Watch Lock & Find | Find My Phone From Your Watch",
+  description: "Ring, lock, and locate your Android phone directly from your Galaxy Watch or Wear OS smartwatch.",
+  keywords: [
+    "Find my phone from watch",
+    "Remote phone lock",
+    "Galaxy Watch utility",
+    "Wear OS phone finder",
+    "Silent mode override",
+    "Android phone tracker",
+    "Watch Lock & Find",
+  ],
   authors: [{ name: "Watch Lock & Find Team" }],
   openGraph: {
-    title: "Watch Lock & Find | Find & Secure Your Phone",
-    description: "Instantly find and secure your Android phone directly from your Galaxy Watch.",
+    title: "Watch Lock & Find | Find My Phone From Your Watch",
+    description: "Ring, lock, and locate your Android phone directly from your Galaxy Watch or Wear OS smartwatch.",
     url: 'https://watchlockfind.vercel.app',
     siteName: 'Watch Lock & Find',
     locale: 'en_US',
@@ -24,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Watch Lock & Find | Find & Secure Your Phone",
-    description: "Instantly find and secure your Android phone directly from your Galaxy Watch.",
+    title: "Watch Lock & Find | Find My Phone From Your Watch",
+    description: "Ring, lock, and locate your Android phone directly from your Galaxy Watch or Wear OS smartwatch.",
   },
 };
 
