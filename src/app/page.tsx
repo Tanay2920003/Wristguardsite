@@ -730,14 +730,6 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="py-8 text-center text-foreground/40 text-sm border-t border-white/5 flex flex-col items-center gap-4">
-        <div className="flex gap-6">
-          <a href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</a>
-          <a href="#compatibility" className="hover:text-primary transition-colors">Compatibility Guide</a>
-        </div>
-        <p>© {new Date().getFullYear()} Watch Lock & Find. All rights reserved.</p>
-      </footer>
-
     </main>
   );
 }
