@@ -156,6 +156,9 @@ export default function PrivacyPolicy() {
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>By email:</strong> tanayanandmishra@gmail.com</li>
         </ul>
+        <p className="text-sm text-foreground/50 mt-10 italic">
+          *Generated using Free Privacy Policy Generator*
+        </p>
       </div>
     </main>
   );
