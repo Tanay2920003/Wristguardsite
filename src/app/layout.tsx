@@ -50,7 +50,7 @@ export default function RootLayout({
         </div>
         <footer className="py-8 text-center text-foreground/40 text-sm border-t border-white/5 flex flex-col items-center gap-4 mt-auto bg-background">
           <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link href="https://privacypolicies-beta.vercel.app/app/watch-lock-and-find" target="_blank" className="hover:text-primary transition-colors">Privacy Policy</Link>
             <Link href="/#compatibility" className="hover:text-primary transition-colors">Compatibility Guide</Link>
           </div>
           <p>© {new Date().getFullYear()} Watch Lock & Find. All rights reserved.</p>
