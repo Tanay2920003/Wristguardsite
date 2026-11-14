@@ -17,6 +17,7 @@ import Hero from "@/components/Hero";
 import Demo from "@/components/Demo";
 import Faq from "@/components/Faq";
 import Reveal from "@/components/Reveal";
+import PromoVideo from "@/components/PromoVideo";
 import { PLAY_URL, PRIVACY_URL, X_URL } from "@/components/links";
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -36,6 +37,7 @@ function Nav() {
           <span className="font-display text-[15px] font-bold tracking-tight">Watch Lock &amp; Find</span>
         </a>
         <div className="hidden items-center gap-8 text-sm text-foreground/60 md:flex">
+          <a href="#video" className="transition hover:text-foreground">Video</a>
           <a href="#demo" className="transition hover:text-foreground">Demo</a>
           <a href="#features" className="transition hover:text-foreground">Features</a>
           <a href="#pricing" className="transition hover:text-foreground">Pricing</a>
@@ -71,6 +73,44 @@ function Marquee() {
         ))}
       </div>
     </div>
+  );
+}
+
+function Showcase() {
+  const points = [
+    ["Ring through Silent & DND", "Full-volume alarm, even when the phone is muted."],
+    ["Lock from your wrist", "One tap and the screen is locked before anyone opens it."],
+    ["SOS, one tap", "Siren, flashlight and lock, all at once."],
+  ];
+  return (
+    <section id="video" className="relative mx-auto max-w-7xl scroll-mt-24 px-4 py-28 sm:px-6 lg:py-36">
+      <div className="pointer-events-none absolute inset-x-0 top-1/2 -z-10 h-96 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(108,255,91,0.08),transparent_70%)]" />
+      <div className="grid items-center gap-16 lg:grid-cols-2">
+        <Reveal className="order-2 lg:order-1">
+          <PromoVideo />
+        </Reveal>
+        <Reveal delay={0.1} className="order-1 text-center lg:order-2 lg:text-left">
+          <Eyebrow>See it in 40 seconds</Eyebrow>
+          <H2>
+            Finding is just <span className="text-primary text-glow">1 of 8.</span>
+          </H2>
+          <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-foreground/60 lg:mx-0">
+            Most apps stop at finding your phone. Watch the full toolkit in action, straight from the watch.
+          </p>
+          <ul className="mx-auto mt-8 max-w-lg space-y-4 text-left lg:mx-0">
+            {points.map(([t, d]) => (
+              <li key={t} className="panel flex items-start gap-4 rounded-2xl p-4">
+                <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-primary text-ink"><Check size={15} strokeWidth={3} /></span>
+                <span>
+                  <span className="block font-display font-bold">{t}</span>
+                  <span className="text-sm text-foreground/55">{d}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </div>
+    </section>
   );
 }
 
@@ -322,6 +362,7 @@ export default function Home() {
       <main className="overflow-hidden">
         <Hero />
         <Marquee />
+        <Showcase />
         <Problem />
         <section id="demo" className="relative scroll-mt-24 border-y border-white/8 bg-panel/60 px-4 py-28 sm:px-6 lg:py-36">
           <div className="mx-auto max-w-6xl">

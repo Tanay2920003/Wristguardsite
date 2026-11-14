@@ -54,6 +54,14 @@ body {
     text-shadow: 0 0 40px rgba(108, 255, 91, 0.35);
   }
 
+  .noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 50% 0%, rgba(108, 255, 91, 0.06), transparent 60%);
+  }
+
   .marquee {
     animation: marquee 32s linear infinite;
   }

@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { ArrowRight, BellRing, Lock, MapPin } from "lucide-react";
+import { ArrowRight, BellRing, Lock, MapPin, Play } from "lucide-react";
 import { X_URL } from "./links";
 
 const Scene3D = dynamic(() => import("./Scene3D"), {
@@ -54,10 +54,10 @@ export default function Hero() {
               <ArrowRight size={18} className="transition group-hover:translate-x-0.5" />
             </a>
             <a
-              href="#demo"
+              href="#video"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/12 px-7 py-4 font-medium text-foreground/85 transition hover:border-white/30 hover:text-foreground sm:w-auto"
             >
-              Try the live demo
+              <Play size={16} className="fill-current" /> Watch the video
             </a>
           </motion.div>
 
